@@ -2,7 +2,16 @@ package com.ad.dz.DZAPI.TrainsBwStns.Service.Impl;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.URL;
+import java.net.URLConnection;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+
+import javax.net.ssl.X509TrustManager;
 
 import org.json.simple.JSONObject;
 import org.springframework.cache.annotation.Cacheable;
@@ -21,9 +30,29 @@ public class TrainBwStnsService implements ITrainsBwStnsService{
 	{	
 		try 
 		{
-			URL url = new URL("https://api.railwayapi.com/v2/between/source/"+ trainsBwStnsDTO.getSrcStn() +"/dest/"+ trainsBwStnsDTO.getDestStn() +"/date/"+ trainsBwStnsDTO.getjDate() +"/apikey/"+ apiKey +"/");
+			// BY-PASS SSL for HTTPS Connection 	----Start
+			TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+			public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+				return null;
+			}
+			public void checkClientTrusted(X509Certificate[] certs, String authType) {
+			}
+			public void checkServerTrusted(X509Certificate[] certs, String authType) {
+			}
+			}};
+
+			SSLContext sc = SSLContext.getInstance("SSL");
+			sc.init(null, trustAllCerts, new java.security.SecureRandom());
+			HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+			// BY-PASS SSL for HTTPS Connection 	----End
+			
+			URL url = new URL("https://indianrailapi.com/api/v2/TrainBetweenStation/apikey/" + apiKey + "/From/" + trainsBwStnsDTO.getSrcStn() + "/To/" + trainsBwStnsDTO.getDestStn() + "/");
 			System.out.println(url);
-			BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+			
+			URLConnection con = url.openConnection();
+	        	Reader reader = new InputStreamReader(con.getInputStream());
+	        	BufferedReader br = new BufferedReader(reader);
+			
 			String str = "";
 			StringBuffer sx = new StringBuffer();
 			while (null != (str = br.readLine())) {
