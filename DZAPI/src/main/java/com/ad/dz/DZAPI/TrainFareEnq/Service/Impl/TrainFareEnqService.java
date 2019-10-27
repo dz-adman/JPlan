@@ -51,8 +51,8 @@ public class TrainFareEnqService implements ITrainFareEnqService{
 			System.out.println(url);
 			
 			URLConnection con = url.openConnection();
-	        Reader reader = new InputStreamReader(con.getInputStream());
-	        BufferedReader br = new BufferedReader(reader);
+	        	Reader reader = new InputStreamReader(con.getInputStream());
+	        	BufferedReader br = new BufferedReader(reader);
 			
 			String str = "";
 			StringBuffer sx = new StringBuffer();
