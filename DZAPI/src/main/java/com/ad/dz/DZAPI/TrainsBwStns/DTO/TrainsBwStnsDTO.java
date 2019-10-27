@@ -1,18 +1,22 @@
 package com.ad.dz.DZAPI.TrainsBwStns.DTO;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
 
 @ApiModel(value = "TrainsBwStations", description = "Trains Between Stations Object")
 public class TrainsBwStnsDTO {
 
 	@ApiParam(value = "Source Station Code", required = true)
+	@ApiModelProperty(value = "Source Station Code", required = true)
 	private String srcStn;
 	
 	@ApiParam(value = "Destination Station Code", required = true)
+	@ApiModelProperty(value = "Destination Station Code", required = true)
 	private String destStn;
 	
-	@ApiParam(value = "Journey Date", required = true)
+	@ApiParam(value = "Journey Date (DD-MM-YYYY)", required = true)
+	@ApiModelProperty(value = "Journey Date (DD-MM-YYYY)", required = true)
 	private String jDate;
 	
 	public TrainsBwStnsDTO(String srcStn, String destStn, String jDate) {
