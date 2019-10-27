@@ -29,7 +29,7 @@ public class PNRCheckService implements IPNRCheckService{
 	{
 		try 
 		{
-			// BY-PASS SSL for HTTPS Connection 	-----Start
+			// BY-PASS SSL for HTTPS Connection 	----Start
 			TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
 			public java.security.cert.X509Certificate[] getAcceptedIssuers() {
 				return null;
@@ -43,7 +43,7 @@ public class PNRCheckService implements IPNRCheckService{
 			SSLContext sc = SSLContext.getInstance("SSL");
 			sc.init(null, trustAllCerts, new java.security.SecureRandom());
 			HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-			// BY-PASS SSL for HTTPS Connection 	-----End
+			// BY-PASS SSL for HTTPS Connection 	----End
 			
 			URL url = new URL("https://indianrailapi.com/api/v2/PNRCheck/apikey/" + apiKey + "/PNRNumber/" + pnrNum + "/Route/1/");
 			System.out.println(url);
