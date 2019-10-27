@@ -1,28 +1,39 @@
 package com.ad.dz.DZAPI.TrainFareEnq.DTO;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
 
 @ApiModel(value = "TrainFareEnquiry", description = "Train Fare Enquiry Object")
 public class TrainFareEnqDTO {
 	
 	@ApiParam(value = "Train Number", required = true)
+	@ApiModelProperty(value = "Train Number", required = true)
 	private int trainNum;
 	
 	@ApiParam(value = "Source Station Code", required = true)
+	@ApiModelProperty(value = "Source Station Code", required = true)
 	private String srcStn;
 	
 	@ApiParam(value = "Destination Station Code", required = true)
+	@ApiModelProperty(value = "Destination Station Code", required = true)
 	private String destStn;
 	
 	@ApiParam(value = "Age of Passenger", required = true)
+	@ApiModelProperty(value = "Age Of Passenger", required = true)
 	private int age;
 	
 	@ApiParam(value = "Travelling Class", required = true)
+	@ApiModelProperty(value = "Travelling Class", required = true)
 	private String trvlCls;
 	
 	@ApiParam(value = "Quota", required = true, allowableValues = "GN - General Quota, CK - Tatkal Quota, LD - Ladies Quota, DF - Defence Quota, PH - Parliament House Quota, FT - Foreign Tourist Quota, DP - Duty Pass Quota, SS - Female(above 45 Year)/Senior Citizen/Travelling alone, HP - Physically Handicapped Quota, RE - Railway Employee Staff on Duty for the train, YU - Yuva Quota, LB - Lower Birth Quota")
+	@ApiModelProperty(value = "Quota (GN)", required = true)
 	private String quota;
+	
+	@ApiParam(value = "Journey Date (DD-MM-YYYY)", required = true)
+	@ApiModelProperty(value = "Journey Date (DD-MM-YYYY)", required = true)
+	private String jDate;
 	
 	public TrainFareEnqDTO(int trainNum, String srcStn, String destStn, int age, String trvlCls, String quota,
 			String jDate) {
@@ -35,8 +46,6 @@ public class TrainFareEnqDTO {
 		this.quota = quota;
 		this.jDate = jDate;
 	}
-	
-	private String jDate;
 
 	public int getTrainNum() {
 		return trainNum;
