@@ -1,1 +1,5 @@
-A Rest-API to help users plan their Train Journeys.
+>>  A Rest-API with Integrated Swagger-UI to help users plan their Train Journeys.
+
+Note:-
+> This API uses TrustManager of java.net.ssl to trust all certificates in order to access/read data at 'Https' urls.
+> As it consumes service from 'www.indianrailapi.com', the API responses are dependent on 'www.indianrailapi.com' - server.
