@@ -6,7 +6,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.2.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	
 	<groupId>com.ad.dz</groupId>
@@ -49,9 +48,9 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>
+            		<groupId>org.springframework.boot</groupId>
+            		<artifactId>spring-boot-starter-cache</artifactId>
+        	</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -77,16 +76,18 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 			<scope>compile</scope>
+		</dependency>		
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>2.6.1</version>
+		    <scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-			<version>1.5.21</version>
-		</dependency>
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-models</artifactId>
-			<version>1.5.21</version>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>2.6.1</version>
+		    <scope>compile</scope>
 		</dependency>
 		<dependency>
 		    <groupId>com.googlecode.json-simple</groupId>
@@ -96,7 +97,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>${war.filename}</finalName>
+		<finalName>${jar.filename}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
