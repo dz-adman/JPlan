@@ -11,16 +11,16 @@ public class JPlanDTO {
 	@ApiModelProperty(value = "Source Station Code", required = true)
 	private String srcStn;
 	
-	@ApiParam(value = "Journey Date", required = true)
-	@ApiModelProperty(value = "Journey Date", required = true)
+	@ApiParam(value = "Journey Date (DD-MM-YYYY)", required = true)
+	@ApiModelProperty(value = "Journey Date (DD-MM-YYYY)", required = true)
 	private String jDate;
 	
-	@ApiParam(value = "Journey From (Hours)", required = true)
-	@ApiModelProperty(value = "Journey From (Hours)", required = true)
+	@ApiParam(value = "From Time(0-24hrs) [hh:mm:ss]", required = true)
+	@ApiModelProperty(value = "From Time(0-24hrs) [hh:mm:ss]", required = true)
 	private String jFromHrs;
 	
-	@ApiParam(value = "Journey To (Hours)", required = true)
-	@ApiModelProperty(value = "Journey To (Hours)", required = true)
+	@ApiParam(value = "To Time(0-24hrs) [hh:mm:ss]", required = true)
+	@ApiModelProperty(value = "To Time(0-24hrs) [hh:mm:ss]", required = true)
 	private String jToHrs;
 	
 	@ApiParam(value = "Seat Availibility Check (boolean)", required = true)
@@ -85,4 +85,3 @@ public class JPlanDTO {
 	}
 	
 }
-
