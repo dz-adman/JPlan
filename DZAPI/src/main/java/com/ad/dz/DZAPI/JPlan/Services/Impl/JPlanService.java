@@ -21,7 +21,6 @@ import com.ad.dz.DZAPI.TrainsBwStns.Service.ITrainsBwStnsService;
 import com.ad.dz.DZAPI.TrainsBwStns.DTO.TrainsBwStnsDTO;
 
 @Service
-@Async
 public class JPlanService implements IJPlanService{
 	
 	@Autowired ITrainsBwStnsService iTrainsBwStnsSrvc;
